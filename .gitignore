@@ -1,0 +1,23 @@
+cat > .gitignore << 'EOF'
+# mac
+.DS_Store
+
+# node
+node_modules/
+npm-debug.log*
+yarn.lock
+pnpm-lock.yaml
+
+# builds
+dist/
+build/
+coverage/
+
+# env / local
+.env
+.env.*
+!.env.example
+
+# vite
+.vite/
+EOF
