@@ -11,7 +11,7 @@ const SearchVehiclePage = ({ setBookData }) => {
     toPincode: "",
     startTime: "",
   });
-  const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
 
   const handleChange = (e) =>
@@ -28,7 +28,6 @@ const SearchVehiclePage = ({ setBookData }) => {
       return;
     }
 
-    setLoading(true);
     try {
       const res = await axios.get(
         "http://localhost:4000/api/vehicles/available",
@@ -44,7 +43,6 @@ const SearchVehiclePage = ({ setBookData }) => {
 
       if (res.data.length === 0) {
         toast.info("No vehicles available");
-        setLoading(false);
         return;
       }
 
@@ -59,7 +57,6 @@ const SearchVehiclePage = ({ setBookData }) => {
     } catch (err) {
       toast.error("Error fetching vehicles");
     }
-    setLoading(false);
   };
 
   return (
@@ -97,13 +94,8 @@ const SearchVehiclePage = ({ setBookData }) => {
         />
         <button
           onClick={handleSearch}
-          disabled={loading}
-          className={`bg-gray-600 text-white py-2 rounded hover:bg-black ${
-            loading ? "opacity-50 cursor-not-allowed" : ""
-          }`}
-        >
-          {loading ? "Searching..." : "Search Availability"}
-        </button>
+          className="bg-gray-600 text-white py-2 rounded hover:bg-black"
+        ></button>
       </div>
       <ToastContainer position="top-right" autoClose={2000} />
     </div>

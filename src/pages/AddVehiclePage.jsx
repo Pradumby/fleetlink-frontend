@@ -5,8 +5,6 @@ import "react-toastify/dist/ReactToastify.css";
 
 const AddVehiclePage = () => {
   const [form, setForm] = useState({ name: "", capacityKg: "", tyres: "" });
-  const [loading, setLoading] = useState(false);
-
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
@@ -21,7 +19,6 @@ const AddVehiclePage = () => {
 
     if (hasError) return;
 
-    setLoading(true);
     try {
       await axios.post("http://localhost:4000/api/vehicles", {
         name: form.name,
@@ -33,7 +30,6 @@ const AddVehiclePage = () => {
     } catch (err) {
       toast.error(err.response?.data?.message || "Error adding vehicle");
     }
-    setLoading(false);
   };
 
   return (
@@ -65,13 +61,8 @@ const AddVehiclePage = () => {
         />
         <button
           type="submit"
-          disabled={loading}
-          className={`bg-gray-600 text-white py-2 rounded hover:bg-black transition ${
-            loading ? "opacity-50 cursor-not-allowed" : ""
-          }`}
-        >
-          {loading ? "Adding..." : "Add Vehicle"}
-        </button>
+          className="bg-gray-600 text-white py-2 rounded hover:bg-black transition"
+        ></button>
       </form>
 
       <ToastContainer
