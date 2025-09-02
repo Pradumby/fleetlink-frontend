@@ -62,7 +62,9 @@ const AddVehiclePage = () => {
         <button
           type="submit"
           className="bg-gray-600 text-white py-2 rounded hover:bg-black transition"
-        ></button>
+        >
+          Add
+        </button>
       </form>
 
       <ToastContainer

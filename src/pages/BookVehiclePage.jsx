@@ -17,7 +17,7 @@ const BookVehiclePage = ({ bookData }) => {
         customerId: "customer123",
       });
       toast.success("Booking successful!");
-      navigate("/success");
+      setTimeout(() => navigate("/success"), 2000);
     } catch (err) {
       toast.error(err.response?.data?.message || "Booking failed");
     }
@@ -54,7 +54,9 @@ const BookVehiclePage = ({ bookData }) => {
             <button
               onClick={() => handleBook(v.vehicleId)}
               className="bg-gray-600 text-white py-2 px-4 mt-2 rounded hover:bg-black"
-            ></button>
+            >
+              Book Now
+            </button>
           </div>
         ))
       )}

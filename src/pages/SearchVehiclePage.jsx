@@ -95,7 +95,9 @@ const SearchVehiclePage = ({ setBookData }) => {
         <button
           onClick={handleSearch}
           className="bg-gray-600 text-white py-2 rounded hover:bg-black"
-        ></button>
+        >
+          Search Availability
+        </button>
       </div>
       <ToastContainer position="top-right" autoClose={2000} />
     </div>
