@@ -53,15 +53,8 @@ const BookVehiclePage = ({ bookData }) => {
 
             <button
               onClick={() => handleBook(v.vehicleId)}
-              disabled={loadingVehicleId === v.vehicleId}
-              className={`bg-gray-600 text-white py-2 px-4 mt-2 rounded hover:bg-black ${
-                loadingVehicleId === v.vehicleId
-                  ? "opacity-50 cursor-not-allowed"
-                  : ""
-              }`}
-            >
-              {loadingVehicleId === v.vehicleId ? "Booking..." : "Book Now"}
-            </button>
+              className="bg-gray-600 text-white py-2 px-4 mt-2 rounded hover:bg-black"
+            ></button>
           </div>
         ))
       )}
