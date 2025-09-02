@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
@@ -6,8 +6,6 @@ import { toast, ToastContainer } from "react-toastify";
 const BookVehiclePage = ({ bookData }) => {
   const navigate = useNavigate();
   const { vehicles, fromPincode, toPincode, startTime } = bookData || {};
-  if (!vehicles || vehicles.length === 0)
-    return <p className="text-center mt-10">No vehicles available</p>;
 
   const handleBook = async (vehicleId) => {
     try {
